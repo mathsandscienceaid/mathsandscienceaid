@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mathsandscienceaid.github.io/mathsandscienceaid/sitemap.xml
