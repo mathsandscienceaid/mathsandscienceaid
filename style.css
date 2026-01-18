@@ -548,3 +548,10 @@ header.scrolled {
   border: 0;
 }
 
+.logo {
+    background: linear-gradient(135deg, #000000, #0b0b0b);
+    padding: 8px 14px;
+    border-radius: 10px;
+}
+
+
