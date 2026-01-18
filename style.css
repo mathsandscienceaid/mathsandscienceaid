@@ -554,42 +554,45 @@ header.scrolled {
     }
 
     /* HERO MOBILE ORDERING:
-       H1 → IMAGE → PARAGRAPH → BUTTON
-    */
-    .welcome-content {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
+   H1 → IMAGE → PARAGRAPH → BUTTON
+*/
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
-    .welcome-text h1 { order: 1; }
+/* Make welcome-text a flex container so we can reorder inside it */
+.welcome-text {
+    display: flex;
+    flex-direction: column;
+    order: 3; /* comes after image */
+}
 
-    .welcome-image {
-        order: 2;
-        margin: 20px auto 10px;
-    }
+.welcome-text h1 { order: 1; }
 
-    .welcome-text {
-        order: 3;
-    }
+.welcome-image {
+    order: 2;
+    margin: 20px auto 10px;
+}
 
-    .welcome-text p {
-        margin: 0 auto;
-        max-width: 90%;
-    }
+.welcome-text p {
+    order: 3;
+    margin: 0 auto;
+    max-width: 90%;
+}
 
-    .hero-buttons {
-        margin-top: 20px;
-        order: 4;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
+.hero-buttons {
+    order: 4;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
 
-    .contact-form button {
-        width: 100%;
-    }
+.contact-form button {
+    width: 100%;
 }
 
 /* =========================
@@ -626,6 +629,7 @@ header.scrolled {
   white-space: nowrap;
   border: 0;
 }
+
 
 
 
