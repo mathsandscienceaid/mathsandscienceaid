@@ -1,5 +1,5 @@
 :root {
-    --primary: #0aa6a6;
+    --primary: #008083;
     --primary-dark: #087c7c;
     --accent: #000000;
     --light-bg: #f6f9fa;
@@ -635,6 +635,7 @@ header.scrolled {
   white-space: nowrap;
   border: 0;
 }
+
 
 
 
