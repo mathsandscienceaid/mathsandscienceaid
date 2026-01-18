@@ -5,11 +5,13 @@
     --light-bg: #f6f9fa;
     --text-dark: #1f2933;
     --text-light: #ffffff;
+    --header-dark: #36454F;
 }
 
 /* =========================
    RESET & GLOBAL
 ========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -50,11 +52,11 @@ section h2 i {
 }
 
 /* =========================
-   HEADER & NAVIGATION (UPDATED — OPTION 1)
+   HEADER & NAVIGATION
 ========================= */
 
 header {
-    background-color: var(#36454F); /* Dark grey header */
+    background-color: var(--header-dark);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     position: sticky;
     top: 0;
@@ -66,7 +68,6 @@ header.scrolled {
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
-/* Navbar container */
 .navbar {
     max-width: 1100px;
     margin: auto;
@@ -92,15 +93,14 @@ header.scrolled {
 .nav-links a {
     transition: color 0.2s ease;
     text-decoration: none;
-    color: var(--text-light); /* White text */
+    color: var(--text-light);
     font-weight: bold;
     padding: 6px 4px;
 }
 
-/* Hover + active state */
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--primary); /* Teal */
+    color: var(--primary);
 }
 
 /* Active underline */
@@ -129,46 +129,8 @@ header.scrolled {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: var(--text-light); /* White burger lines */
+    background-color: var(--text-light);
     border-radius: 2px;
-}
-
-/* =========================
-   MOBILE NAVIGATION
-========================= */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        flex-direction: row; /* keep logo + burger on same row */
-        align-items: center;
-    }
-
-    .burger {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: var(--accent); /* Black mobile menu */
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        z-index: 999;
-    }
-
-    .nav-links li {
-        padding: 12px 0;
-    }
-
-    .nav-links.nav-active {
-        display: flex;
-    }
 }
 
 /* =========================
@@ -466,6 +428,22 @@ header.scrolled {
     gap: 10px;
 }
 
+/* Hide WhatsApp fallback until needed */
+.whatsapp-fallback {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Form status message */
+.form-status {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
 /* =========================
    MOBILE STYLES
 ========================= */
@@ -473,8 +451,30 @@ header.scrolled {
 @media (max-width: 768px) {
 
     .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
         flex-direction: column;
-        align-items: flex-start;
+        background: var(--accent);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        z-index: 999;
+    }
+
+    .nav-links.nav-active {
+        display: flex;
     }
 
     .subject-cards,
@@ -498,37 +498,38 @@ header.scrolled {
         text-align: center;
     }
 
+    /* HERO MOBILE ORDERING:
+       H1 → IMAGE → PARAGRAPH → BUTTON
+    */
     .welcome-content {
         display: flex;
         flex-direction: column;
         text-align: center;
     }
 
-    .welcome-text h1 { 
-        order: 1; 
-    }
-    
-    .welcome-image { 
+    .welcome-text h1 { order: 1; }
+
+    .welcome-image {
         order: 2;
-        margin: 20px auto 10px; 
+        margin: 20px auto 10px;
     }
-    
-    .welcome-text { 
-        order: 3; 
-    }                
-    
+
+    .welcome-text {
+        order: 3;
+    }
+
     .welcome-text p {
-    margin: 0 auto;
-    max-width: 90%;
+        margin: 0 auto;
+        max-width: 90%;
     }
-    
+
     .hero-buttons {
-    margin-top: 20px;
-    order: 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+        margin-top: 20px;
+        order: 4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
     .contact-form button {
