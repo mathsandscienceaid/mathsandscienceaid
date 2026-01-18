@@ -255,33 +255,37 @@
                       mathsandscienceaid@gmail.com
                   </a>
               </p>
-
           </div>
 
           <form class="contact-form" action="https://formspree.io/f/xeeopbdd" method="POST">
-              <input type="text" name="name" placeholder="Your Name" required>
-              <input type="email" name="email" placeholder="Your Email" required>
-              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-              <button type="submit" class="submit-btn">
-                <span class="btn-text">Send Message</span>
-                <span class="spinner"></span>
-</button>
 
-          </form>
+             <label for="name" class="sr-only">Your Name</label>
+             <input id="name" type="text" name="name" placeholder="Your Name" required>
 
+             <label for="email" class="sr-only">Your Email</label>
+             <input id="email" type="email" name="_replyto" placeholder="Your Email" required>
+
+             <label for="message" class="sr-only">Your Message</label>
+             <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+             <button type="submit" class="submit-btn">
+                 <span class="btn-text">Send Message</span>
+                 <span class="spinner" aria-hidden="true"></span>
+              </button>
+          
+            <p class="form-status">
+              ✅ Message sent successfully! Redirecting...
+            </p>
+              
+           </form>
+          
           <div class="whatsapp-fallback">
               <p>Or contact us directly on WhatsApp</p>
-              <button type="button" class="whatsapp-btn">
-                  <i class="fab fa-whatsapp"></i> WhatsApp Us
+              <button type="button" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+                   <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us
               </button>
           </div>
-
-          <p class="form-status">
-              ✅ Message sent successfully! Redirecting...
-          </p>
-
-
-      </div>
+          
   </section>
 </main>
 
@@ -314,9 +318,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
