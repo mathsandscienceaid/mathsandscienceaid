@@ -69,40 +69,49 @@
   </header>
 
 <main>
-  <section class="welcome" id="hero">
-    <div class="container welcome-content">
+<section class="welcome" id="hero">
+  <div class="container welcome-content">
 
-      <div class="welcome-text fade-start">
-        <h1>Maths & Science Tutoring for Grade 12 and Matric Upgrade!</h1>
-      </div>
-        
-        <h2 class="sr-only">
-            Mathematics and Physical Sciences tutoring for Grade 12 and matric updrade learners in South Africa
-        </h2>
+    <!-- TEXT BLOCK (kept as one unit for layout + mobile ordering) -->
+    <div class="welcome-text fade-start">
 
-      <div class="welcome-image fade-start">
-        <img src="hero-photo.jpg" alt="Siwaphiwe Mfana – Maths & Science Tutor">
+      <h1>
+        Maths & Science Tutoring for Grade 12 and Matric Upgrade!
+      </h1>
+
+      <!-- SEO / screen-reader heading (correctly placed inside text block) -->
+      <h2 class="sr-only">
+        Mathematics and Physical Sciences tutoring for Grade 12 and matric upgrade learners in South Africa
+      </h2>
+
+      <p>
+        We offer focused <strong>Mathematics and Physical Sciences</strong> classes for 
+        <strong>Grade 12</strong> and <strong>matric upgrade</strong> learners.  
+        My goal is to help learners strengthen their understanding, build exam confidence, 
+        and achieve improved results.
+      </p>
+
+      <p>
+        To ensure greater accessibility and affordability for South African learners, all classes are delivered 
+        <strong>online in small group formats</strong>, rather than one-on-one sessions.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Sign Up Now!</a>
       </div>
-        
-        <div>
-          <p>
-           We offer focused <strong>Mathematics and Physical Sciences</strong> classes for <strong>Grade 12</strong> and <strong>matric upgrade</strong> learners. 
-           My goal is to help learners strengthen their understanding, build exam confidence, and achieve improved results.
-          </p>
-          
-          <p>
-          To ensure greater accessibility and affordability for South African learners, all classes are delivered <strong>online in small group formats</strong>,
-          rather than one-on-one sessions.
-          </p>
-        </div>
-        
-        
-        <div class="hero-buttons">
-          <a href="#contact" class="btn primary">Sign Up Now!</a>
-        </div>
 
     </div>
-  </section>
+
+    <!-- IMAGE BLOCK (separate, so your CSS grid + mobile ordering still works) -->
+    <div class="welcome-image fade-start">
+      <img 
+        src="hero-photo.jpg" 
+        alt="Siwaphiwe Mfana – Maths & Science Tutor"
+      >
+    </div>
+
+  </div>
+</section>
 
   <section id="subjects" class="subjects">
       <div class="container">
@@ -327,6 +336,7 @@
 </body>
 
 </html>
+
 
 
 
