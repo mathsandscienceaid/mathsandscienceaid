@@ -398,6 +398,7 @@ header.scrolled {
 
 .contact {
     background-color: var(--text-light);
+    padding: 60x 20x;
 }
 
 .contact h2 {
@@ -420,6 +421,16 @@ header.scrolled {
     font-size: 1.3rem;
 }
 
+.contact-info a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
 .contact-form {
     max-width: 600px;
     margin: auto;
@@ -427,7 +438,6 @@ header.scrolled {
     flex-direction: column;
     gap: 15px;
 }
-/* ====== FORM INPUT STYLING (YOUR MISSING PIECE) ====== */
 
 .contact-form input,
 .contact-form textarea {
@@ -606,4 +616,5 @@ header.scrolled {
   white-space: nowrap;
   border: 0;
 }
+
 
