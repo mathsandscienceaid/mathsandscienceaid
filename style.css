@@ -52,45 +52,35 @@ section h2 i {
 }
 
 /* =========================
-   HEADER & NAVIGATION (BRANDED + BADGE LOGO + SCROLL SHADE)
+   HEADER & NAVIGATION (UPDATED — PRIMARY BACKGROUND)
 ========================= */
 
 header {
-    background-color: var(--primary);
+    background-color: var(--primary); /* <-- Your brand colour */
     border-bottom: 1px solid rgba(255,255,255,0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Darker shade on scroll */
 header.scrolled {
-    background-color: var(--primary-dark);
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
-/* Navbar layout */
+/* Navbar container */
 .navbar {
     max-width: 1100px;
     margin: auto;
-    padding: 12px 20px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* ====== LOGO BADGE (NEW) ====== */
-.logo {
-    background: rgba(255,255,255,0.15); /* slightly lighter badge */
-    border: 1px solid rgba(255,255,255,0.35); /* soft outline */
-    padding: 6px 10px;
-    border-radius: 10px;
-    backdrop-filter: blur(4px); /* subtle glass effect */
-}
-
+/* Logo */
 .logo img {
-    height: 46px;
+    height: 50px;
     display: block;
 }
 
@@ -104,15 +94,15 @@ header.scrolled {
 .nav-links a {
     transition: color 0.2s ease;
     text-decoration: none;
-    color: var(--text-light); /* white for contrast */
+    color: var(--text-light); /* White for contrast */
     font-weight: bold;
     padding: 6px 4px;
 }
 
-/* Hover + active */
+/* Hover + active state */
 .nav-links a:hover,
 .nav-links a.active {
-    color: #e6ffff; /* soft light teal */
+    color: #e6ffff; /* softer light teal hover */
 }
 
 /* Active underline */
@@ -141,7 +131,7 @@ header.scrolled {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: var(--text-light);
+    background-color: var(--text-light); /* White lines */
     border-radius: 2px;
 }
 
@@ -514,8 +504,9 @@ header.scrolled {
 /* =========================
    MOBILE STYLES
 ========================= */
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
+    
     .navbar {
         flex-direction: row;
         align-items: center;
@@ -528,7 +519,7 @@ header.scrolled {
     .nav-links {
         display: none;
         flex-direction: column;
-        background: var(--primary-dark);
+        background: var(--primary-dark); /* slightly darker teal */
         position: absolute;
         top: 70px;
         left: 0;
@@ -546,7 +537,6 @@ header.scrolled {
     .nav-links.nav-active {
         display: flex;
     }
-}
 
     .subject-cards,
     .review-cards,
@@ -645,10 +635,6 @@ header.scrolled {
   white-space: nowrap;
   border: 0;
 }
-
-
-
-
 
 
 
