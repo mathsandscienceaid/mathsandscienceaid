@@ -471,15 +471,24 @@ header.scrolled {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Hide WhatsApp fallback until needed */
 .whatsapp-fallback {
     display: none;
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
 }
 
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.whatsapp-btn i {
+    font-size: 1.2rem;
+}
 /* Form status message */
 .form-status {
     display: none;
@@ -616,5 +625,6 @@ header.scrolled {
   white-space: nowrap;
   border: 0;
 }
+
 
 
