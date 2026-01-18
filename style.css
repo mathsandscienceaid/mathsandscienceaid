@@ -559,42 +559,44 @@ header.scrolled {
         text-align: center;
     }
 
-    /* HERO MOBILE ORDERING:
-   H1 → IMAGE → PARAGRAPH → BUTTON
+/* HERO MOBILE ORDERING:
+   H1 → IMAGE → PARAGRAPHS → BUTTON
 */
-.welcome-content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
+@media (max-width: 768px) {
 
-/* Make welcome-text a flex container so we can reorder inside it */
-.welcome-text {
-    display: flex;
-    flex-direction: column;
-    order: 3; /* comes after image */
-}
+    .welcome-content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 
-.welcome-text h1 { order: 1; }
+    /* 1) Heading stays first */
+    .welcome-text h1 {
+        order: 1;
+    }
 
-.welcome-image {
-    order: 2;
-    margin: 20px auto 10px;
-}
+    /* 2) Image comes second */
+    .welcome-image {
+        order: 2;
+        margin: 20px auto 10px;
+    }
 
-.welcome-text p {
-    order: 3;
-    margin: 0 auto;
-    max-width: 90%;
-}
+    /* 3) Paragraphs come third */
+    .welcome-paragraphs {
+        order: 3;
+        margin: 0 auto;
+        max-width: 90%;
+    }
 
-.hero-buttons {
-    order: 4;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    /* 4) Button comes last */
+    .hero-buttons {
+        order: 4;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
 .contact-form button {
@@ -635,6 +637,7 @@ header.scrolled {
   white-space: nowrap;
   border: 0;
 }
+
 
 
 
