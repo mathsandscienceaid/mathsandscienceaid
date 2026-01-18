@@ -175,6 +175,20 @@ header.scrolled {
     background-color: rgba(10,166,166,0.08);
 }
 
+.submit-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /* =========================
    WELCOME / HERO SECTION
 ========================= */
@@ -413,6 +427,27 @@ header.scrolled {
     flex-direction: column;
     gap: 15px;
 }
+/* ====== FORM INPUT STYLING (YOUR MISSING PIECE) ====== */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-bg);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus state (when user clicks inside input) */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(10,166,166,0.15);
+}
 
 /* WhatsApp Button */
 .whatsapp-btn {
@@ -571,3 +606,4 @@ header.scrolled {
   white-space: nowrap;
   border: 0;
 }
+
