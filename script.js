@@ -15,19 +15,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* =========================
-   BURGER MENU
+   BURGER MENU (ACCESSIBLE)
 ========================= */
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
 if (burger && navLinks) {
-    burger.addEventListener('click', () => {
+    const toggleMenu = () => {
         navLinks.classList.toggle('nav-active');
+        const isOpen = navLinks.classList.contains('nav-active');
+        burger.setAttribute('aria-expanded', isOpen);
+    };
+
+    burger.addEventListener('click', toggleMenu);
+    burger.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') toggleMenu();
     });
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('nav-active');
+            burger.setAttribute('aria-expanded', 'false');
         });
     });
 }
@@ -39,13 +47,16 @@ const faders = document.querySelectorAll(
     '.welcome-text, .welcome-image, .card, .review, .resources-content, .about-image, .about-text'
 );
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('fade-in');
-        observer.unobserve(entry.target);
-    });
-}, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+const appearOnScroll = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+);
 
 faders.forEach(el => appearOnScroll.observe(el));
 
@@ -61,7 +72,7 @@ if (header) {
 }
 
 /* =========================
-   ACTIVE NAV LINK
+   ACTIVE NAV LINK HIGHLIGHT
 ========================= */
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-links a');
@@ -87,8 +98,13 @@ window.addEventListener('scroll', () => {
 });
 
 /* =========================
-   CONTACT FORM
+   CONTACT FORM (PRO VERSION)
+   - Real Formspree handling
+   - Loading state
+   - Success message
+   - WhatsApp fallback on failure
 ========================= */
+
 const form = document.querySelector('.contact-form');
 const statusMsg = document.querySelector('.form-status');
 const whatsappFallback = document.querySelector('.whatsapp-fallback');
@@ -98,44 +114,73 @@ if (form) {
     const spinner = button?.querySelector('.spinner');
     const btnText = button?.querySelector('.btn-text');
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Button loading state
+        // Show loading state
         if (spinner && btnText) {
             spinner.style.display = 'inline-block';
             btnText.textContent = 'Sending...';
             button.disabled = true;
         }
 
-        // Simulated send
-        setTimeout(() => {
-            statusMsg.style.display = 'block';
-        }, 800);
+        try {
+            const formData = new FormData(form);
 
-        // WhatsApp fallback
-        setTimeout(() => {
-            if (statusMsg.style.display !== 'block' && whatsappFallback) {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // SUCCESS
+                statusMsg.textContent = "✅ Message sent successfully! Redirecting...";
+                statusMsg.style.display = 'block';
+
+                // Reset form
+                form.reset();
+
+                // Redirect after success
+                setTimeout(() => {
+                    window.location.href = 'thank-you.html';
+                }, 3500);
+            } else {
+                throw new Error("Form submission failed");
+            }
+
+        } catch (error) {
+            console.error("Form error:", error);
+
+            // FAILURE → Show WhatsApp fallback
+            statusMsg.textContent = "⚠️ Message could not be sent. Please use WhatsApp below.";
+            statusMsg.style.display = 'block';
+
+            if (whatsappFallback) {
                 whatsappFallback.style.display = 'block';
             }
-        }, 3000);
 
-        // Redirect
-        setTimeout(() => {
-            window.location.href = 'thank-you.html';
-        }, 2500);
+            // Reset button state
+            if (spinner && btnText) {
+                spinner.style.display = 'none';
+                btnText.textContent = 'Send Message';
+                button.disabled = false;
+            }
+        }
     });
 }
 
 /* =========================
-   WHATSAPP BUTTON
+   WHATSAPP BUTTON (SMART VERSION)
 ========================= */
 const whatsappBtn = document.querySelector('.whatsapp-btn');
 
 if (whatsappBtn && form) {
     whatsappBtn.addEventListener('click', () => {
         const name = form.name.value || 'Not provided';
-        const email = form.email.value || 'Not provided';
+        const email = form._replyto?.value || form.email?.value || 'Not provided';
         const message = form.message.value || 'Hello, I would like more information.';
 
         const whatsappMessage =
