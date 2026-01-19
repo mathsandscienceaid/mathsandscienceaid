@@ -12,7 +12,7 @@
    RESET & GLOBAL
 ========================= */
 
-* {
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -27,10 +27,6 @@ body {
 h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-}
-
-p {
-    font-size: 1.1rem;
 }
 
 .container {
@@ -65,6 +61,7 @@ header {
 }
 
 header.scrolled {
+    background-color: var(--primary-dark);
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
@@ -156,6 +153,7 @@ h3 {
 p {
     font-size: clamp(1rem, 1.2vw, 1.1rem);
     line-height: 1.6;
+    max-width: 100%
 }
 
 /* Make section titles consistent */
@@ -562,7 +560,7 @@ section h2 {
         flex-direction: column;
         background: var(--primary-dark); /* slightly darker teal */
         position: absolute;
-        top: 70px;
+        top: 100%;
         left: 0;
         width: 100%;
         padding: 20px 0;
@@ -610,7 +608,8 @@ section h2 {
     }
 
     .welcome-text {
-        display: contents;
+        display: flex;
+        flex-direction: column;
     }
     
     /* 1) Heading stays first */
@@ -692,14 +691,3 @@ section {
   white-space: nowrap;
   border: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
