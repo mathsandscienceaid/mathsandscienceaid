@@ -242,7 +242,7 @@ section h2 {
     gap: 40px;
 }
 
-.hero-title {
+.welcome-text {
     grid-column: 1 / -1;
     margin-bottom: 15px;
 }
@@ -251,7 +251,7 @@ section h2 {
     max-width: 500px;
 }
 
-.welcome-paragraphs p {
+.welcome-paragraphs {
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 12px;
@@ -265,7 +265,7 @@ section h2 {
 
 .welcome-image {
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
 
 .welcome-image img {
@@ -702,4 +702,5 @@ section {
   white-space: nowrap;
   border: 0;
 }
+
 
