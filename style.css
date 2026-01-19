@@ -624,7 +624,7 @@ section h2 {
     }
     
     /* 1) Heading stays first */
-    .welcome-text h1 {
+    .welcome-text {
         order: 1;
     }
 
@@ -641,7 +641,7 @@ section h2 {
         max-width: 90%;
     }
 
-    .welcome-paragraphs p {
+    .welcome-paragraphs {
     text-align: center;
     }
 
@@ -702,3 +702,4 @@ section {
   white-space: nowrap;
   border: 0;
 }
+
