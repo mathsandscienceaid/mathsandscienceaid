@@ -265,7 +265,7 @@ section h2 {
 
 .welcome-image {
     display: flex;
-    justify-content: right;
+    justify-content: center;
 }
 
 .welcome-image img {
@@ -702,5 +702,6 @@ section {
   white-space: nowrap;
   border: 0;
 }
+
 
 
